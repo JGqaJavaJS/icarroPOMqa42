@@ -3,6 +3,7 @@ package pages;
 import config.AppiumConfig;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -37,5 +38,19 @@ public class BasePage {
         element.click();
         element.clear();
         element.sendKeys(text);
+    }
+
+    public void hideKeyBoard() {
+        AppiumConfig.getDriver().hideKeyboard();
+    }
+
+    public void clickBackBtn() {
+        AppiumConfig.getDriver().navigate().back();
+    }
+
+    protected void clickByIndex(By by, int index) {
+        List<MobileElement> list = findElements(by);
+        WebElement element = list.get(index);
+        element.click();
     }
 }
