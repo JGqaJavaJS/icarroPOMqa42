@@ -24,12 +24,22 @@ public class BasePage {
         return findElement(by).getText();
     }
 
+    protected String getTextByIndex(By by, int index) {
+//        List<MobileElement> list = findElements(by);
+//        MobileElement element = list.get(index);
+//        return element.getText();
+        return findElements(by)
+                .get(index)
+                .getText();
+    }
+
     protected void wait(By by, int time) {
         new WebDriverWait(AppiumConfig.getDriver(), time)
                 .until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     protected void click(By by) {
+        // logger info .....
         findElement(by).click();
     }
 
@@ -38,6 +48,7 @@ public class BasePage {
         element.click();
         element.clear();
         element.sendKeys(text);
+        hideKeyBoard();
     }
 
     public void hideKeyBoard() {
@@ -52,5 +63,13 @@ public class BasePage {
         List<MobileElement> list = findElements(by);
         WebElement element = list.get(index);
         element.click();
+    }
+
+    public void pause(int time) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -7,7 +7,7 @@ public class LoginTests extends BaseTest{
 
     @Test
     public void positiveLoginTest() {
-        splashScreen.pause(15000);
+       // splashScreen.pause(15000);
         searchScreen.openMenu();
         searchScreen.clickFirstOnMenu();
         loginScreen.fillLoginForm(user); // fill email, password, click yalla
