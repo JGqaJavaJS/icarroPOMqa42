@@ -2,9 +2,7 @@ package tests;
 
 import config.AppiumConfig;
 import dto.UserDTO;
-import pages.LoginScreen;
-import pages.SearchScreen;
-import pages.SplashScreen;
+import pages.*;
 
 public class BaseTest extends AppiumConfig {
 
@@ -16,4 +14,6 @@ public class BaseTest extends AppiumConfig {
     SplashScreen splashScreen = new SplashScreen();
     SearchScreen searchScreen = new SearchScreen();
     LoginScreen loginScreen = new LoginScreen();
+    MyCarsScreen myCarsScreen = new MyCarsScreen();
+    AddNewCarScreen addNewCarScreen = new AddNewCarScreen();
 }
