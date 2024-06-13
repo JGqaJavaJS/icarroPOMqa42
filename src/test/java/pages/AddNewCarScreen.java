@@ -5,16 +5,17 @@ import org.openqa.selenium.By;
 
 public class AddNewCarScreen extends BasePage{
 
-    By inputSerNumber = By.xpath();
-    By inputManufacture = By.xpath();
-    By inputModel = By.xpath();
-    By inputCity = By.xpath();
-    By inputPrice = By.xpath();
-    By inputCarClass = By.xpath();
-    By inputFuelGas = By.xpath();
-    By inputYear = By.xpath();
-    By inputSeats = By.xpath();
-    By btnAddNewCar = By.xpath();
+    By inputSerNumber = By.xpath("//*[@resource-id='com.telran.ilcarro:id/editSerial']");
+    By inputManufacture = By.xpath("//*[@resource-id='com.telran.ilcarro:id/editMan']");
+    By inputModel = By.xpath("//*[@resource-id='com.telran.ilcarro:id/editModel']");
+    By inputCity = By.xpath("//*[@resource-id='com.telran.ilcarro:id/editCity']");
+    By inputPrice = By.xpath("//*[@resource-id='com.telran.ilcarro:id/editPrice']");
+    By inputCarClass = By.xpath("//*[@resource-id='com.telran.ilcarro:id/editCarClass']");
+    By inputFuelType = By.xpath("//*[@resource-id='com.telran.ilcarro:id/text1']");
+    By inputFuelGas = By.xpath("//*[@text='Gas']");
+    By inputYear = By.xpath("//*[@resource-id='com.telran.ilcarro:id/editYear']");
+    By inputSeats = By.xpath("//*[@resource-id='com.telran.ilcarro:id/editSeats']");
+    By btnAddNewCar = By.xpath("//*[@resource-id='com.telran.ilcarro:id/addCarBtn']");
 
     public void addNewCar(CarDTO carLocal) {
         wait(inputSerNumber, 5);
@@ -25,11 +26,20 @@ public class AddNewCarScreen extends BasePage{
         fillPrice(carLocal.getPrice());
         fillCarClass(carLocal.getCarClass());
         // scroll to element button add car
-        fillFuel(carLocal.getFuelType());
+        clickFuelType();
+        clickFuelGas();
+       // fillFuel(carLocal.getFuelType());
         fillYear(carLocal.getYear());
         fillSeatsCount(carLocal.getSeats());
         clickAddNewCar();
-        // close pop up?
+    }
+
+    public void clickFuelGas() {
+        click(inputFuelGas);
+    }
+
+    public void clickFuelType() {
+        click(inputFuelType);
     }
 
     public void clickAddNewCar() {

@@ -8,6 +8,7 @@ public class MyCarsScreen extends BasePage{
 
     By btnAddNewCar = By.xpath();
     By allSerNumbers = By.xpath();
+
     public void clickAddNewCar() {
         wait(btnAddNewCar, 5);
         click(btnAddNewCar);
