@@ -13,6 +13,11 @@ public class AddNewCarScreen extends BasePage{
     By inputCarClass = By.xpath("//*[@resource-id='com.telran.ilcarro:id/editCarClass']");
     By inputFuelType = By.xpath("//*[@resource-id='com.telran.ilcarro:id/text1']");
     By inputFuelGas = By.xpath("//*[@text='Gas']");
+    //String fueltype = "";
+    //By inputFuelTypeFuel = By.xpath("//*[@text='"+fueltype+"']");
+    public By getLocatorFuelType(String fuel) {
+        return By.xpath("//*[@text='"+fuel+"']");
+    }
     By inputYear = By.xpath("//*[@resource-id='com.telran.ilcarro:id/editYear']");
     By inputSeats = By.xpath("//*[@resource-id='com.telran.ilcarro:id/editSeats']");
     By btnAddNewCar = By.xpath("//*[@resource-id='com.telran.ilcarro:id/addCarBtn']");
@@ -27,7 +32,11 @@ public class AddNewCarScreen extends BasePage{
         fillCarClass(carLocal.getCarClass());
         // scroll to element button add car
         clickFuelType();
-        clickFuelGas();
+        //fueltype = carLocal.getFuelType();
+        //System.out.println(inputFuelTypeFuel.toString());
+        click(getLocatorFuelType(carLocal.getFuelType()));
+        System.out.println(getLocatorFuelType(carLocal.getFuelType()).toString());
+      //  clickFuelGas();
        // fillFuel(carLocal.getFuelType());
         fillYear(carLocal.getYear());
         fillSeatsCount(carLocal.getSeats());

@@ -6,8 +6,8 @@ import java.util.List;
 
 public class MyCarsScreen extends BasePage{
 
-    By btnAddNewCar = By.xpath();
-    By allSerNumbers = By.xpath();
+    By btnAddNewCar = By.xpath("//*[@resource-id='com.telran.ilcarro:id/addCarBtn']");
+    By allSerNumbers = By.xpath("//*[@resource-id='com.telran.ilcarro:id/myCarSerialTxt']");
 
     public void clickAddNewCar() {
         wait(btnAddNewCar, 5);
