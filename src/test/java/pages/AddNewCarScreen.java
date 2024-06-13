@@ -91,3 +91,11 @@ public class AddNewCarScreen extends BasePage{
         sendText(inputSerNumber, serNumber);
     }
 }
+
+/*
+    public void tapWithCoordinates(int x, int y) {
+            new TouchAction((PerformsTouchActions) driver).tap(PointOption.point(x,y))
+                            .release().perform();
+                             }
+ */
+
